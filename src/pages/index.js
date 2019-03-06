@@ -1,13 +1,12 @@
 import React from "react"
-import styled from "styled-components"
-import NumberInput from "../components/numberInput"
 
-const Container = styled.div`
-  background-color: #11689b;
-`
+import Layout from "../components/layout"
+import Head from "../components/head"
+import SEO from "../components/seo"
 
-class Main extends React.Component {
+class IndexPage extends React.Component {
   state = {
+    bgOpacity: 0,
     minuteCount: null,
     minuteValue: null,
     secondsValue: null,
@@ -34,7 +33,11 @@ class Main extends React.Component {
 
       secondsCount--
 
+      const derivedOpacity =
+        (100 - (secondsCount * 100) / (minuteCount * 60)) / 100
+
       this.setState({
+        bgOpacity: derivedOpacity,
         minuteValue: minutes,
         secondsValue: seconds,
       })
@@ -42,6 +45,7 @@ class Main extends React.Component {
       if (secondsCount < 0) {
         clearInterval(counter)
         this.setState({
+          bgOpacity: 0,
           isCountdownStarted: false,
         })
       }
@@ -60,35 +64,50 @@ class Main extends React.Component {
 
   render() {
     const {
+      bgOpacity,
       isCountdownStarted,
-      minuteCount,
       minuteValue,
       secondsValue,
     } = this.state
+
+    const layoutStyle = {
+      background: `rgba(202, 6, 6, ${bgOpacity})`,
+      color: "#ffffff",
+      height: `100%`,
+      padding: `0px 1.0875rem 1.45rem`,
+      paddingTop: 0,
+    }
+
     return (
-      <Container>
-        {isCountdownStarted && (minuteValue || secondsValue) ? (
-          <div className="countdown__counter">
-            {minuteValue}:{secondsValue}
+      <Layout style={layoutStyle}>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        {isCountdownStarted ? (
+          <div className="timer-wrapper">
+            <div className="timer">
+              {minuteValue && secondsValue && `${minuteValue}:${secondsValue}`}
+            </div>
           </div>
         ) : (
-          <div className="countdown__form">
-            <NumberInput
-              name="minute-input"
-              value={minuteCount}
-              onChange={this.handleSetMinuteValue}
-            />
-            <input
-              type="submit"
-              className="countdown__button"
-              value="Start timer"
-              onClick={this.handleTimerStart}
-            />
-          </div>
+          <>
+            <Head />
+            <form className="counter-form" onSubmit={this.handleTimerStart}>
+              <input
+                className="counter-form__input"
+                type="number"
+                placeholder="Minutes?"
+                onChange={this.handleSetMinuteValue}
+              />
+              <input
+                className="counter-form__button"
+                type="submit"
+                value="Start"
+              />
+            </form>
+          </>
         )}
-      </Container>
+      </Layout>
     )
   }
 }
 
-export default Main
+export default IndexPage
