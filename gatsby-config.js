@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Talk Timer`,
-    description: `Enhance your talk or conference with this timer.`,
+    title: `Talk Timer - Measure your talk`,
+    description: `Make your talk or conference great with this timer.`,
     author: `@paulmorar`,
   },
   plugins: [
@@ -27,7 +27,6 @@ module.exports = {
         icon: `src/images/talkTimer.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-typography`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

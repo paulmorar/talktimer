@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
-import Layout from "../components/layout"
-import Head from "../components/head"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import Head from '../components/head'
+import SEO from '../components/seo'
 
 class IndexPage extends React.Component {
   state = {
@@ -28,8 +28,8 @@ class IndexPage extends React.Component {
       let seconds = parseInt(secondsCount % 60, 10)
 
       // append 0 for one digit values
-      minutes = minutes < 10 ? "0" + minutes : minutes
-      seconds = seconds < 10 ? "0" + seconds : seconds
+      minutes = minutes < 10 ? '0' + minutes : minutes
+      seconds = seconds < 10 ? '0' + seconds : seconds
 
       secondsCount--
 
@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
 
     const layoutStyle = {
       background: `rgba(202, 6, 6, ${bgOpacity})`,
-      color: "#ffffff",
+      color: '#ffffff',
       height: `100%`,
       padding: `0px 1.0875rem 1.45rem`,
       paddingTop: 0,
@@ -80,7 +80,20 @@ class IndexPage extends React.Component {
 
     return (
       <Layout style={layoutStyle}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Home"
+          keywords={[
+            `talk timer`,
+            `speaker timer`,
+            `timer`,
+            `timer app`,
+            `online timer`,
+            `stylish timer`,
+            `minute countdown`,
+            `minute`,
+            `countdown`,
+          ]}
+        />
         {isCountdownStarted ? (
           <div className="timer-wrapper">
             <div className="timer">
