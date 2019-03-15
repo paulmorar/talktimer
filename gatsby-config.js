@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Talk Timer`,
     description: `Enhance your talk or conference with this timer.`,
-    author: `@gatsbyjs`,
+    author: `@paulmorar`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -32,6 +32,13 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    `gatsby-plugin-google-analytics`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-136358393-1",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
