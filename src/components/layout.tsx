@@ -11,7 +11,7 @@ import { StaticQuery, graphql } from "gatsby"
 import "./layout.css"
 
 interface Props {
-  children: Node
+  children: any
   style?: object
 }
 
