@@ -1,0 +1,8 @@
+{
+  "extends": ["config:base"],
+  "separateMinorPatch": true,
+  "stabilityDays": 7,
+  "patch": {
+    "enabled": false
+  }
+}
