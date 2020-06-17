@@ -4,6 +4,7 @@
   "description": "A simple countdown for presentations written using JAM Stack",
   "version": "0.1.0",
   "author": "Paul Morar <paulcornelmorar@gmail.com>",
+  "engines" : { "node" : "^14.0.0" },
   "dependencies": {
     "@types/react-helmet": "^6.0.0",
     "@types/typography": "^0.16.3",
