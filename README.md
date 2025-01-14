@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+```
+     _        _ _  _____ _
+    | |      | | ||_   _(_)
+    | |_ __ _| | | _| |  _ _ __ ___   ___ _ __
+    | __/ _` | | |/ / | | | '_ ` _ \ / _ \ '__|
+    | || (_| | |   <| | | | | | | | |  __/ |
+     \__\__,_|_|_|\_\_/ |_|_| |_| |_|\___|_|
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# talkTimer
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+talkTimer is a simple web application designed to help you manage your speaking time during conference talks or meetups. It provides a countdown timer that visually indicates the remaining time, helping you stay on track.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- Set a countdown timer for your talk.
+- Visual indication of remaining time.
+- Clear the timer when it reaches zero.
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To get started with talkTimer, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/paulmorar/talktimer.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd talktimer
+   ```
+3. Install the dependencies:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Open the application in your browser.
+2. Enter the number of minutes for your talk.
+3. Click the "Start timer" button to begin the countdown.
+4. The timer will display the remaining time and change color as the time runs out.
+5. Click the "Clear timer" button to reset the timer.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you have any improvements or bug fixes.
+
+## Acknowledgements
+
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Contact
+
+For any questions or inquiries, please contact Paul Morar at paulmorar@example.com.
