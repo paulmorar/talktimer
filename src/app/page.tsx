@@ -34,7 +34,7 @@ export default function Home() {
   const [bgColor, setBgColor] = useState("rgb(0, 0, 0)");
 
   useEffect(() => {
-    let timer: any;
+    let timer: ReturnType<typeof setInterval>;
     if (isTimerRunning && (minutes > 0 || seconds > 0)) {
       timer = setInterval(() => {
         if (seconds > 0) {
@@ -49,7 +49,7 @@ export default function Home() {
       setDisplayClear(true);
     }
     return () => clearInterval(timer);
-  }, [isTimerRunning, minutes, seconds]);
+  }, [isTimerRunning, initialMinutes, minutes, seconds]);
 
   const handleStart = () => {
     if (minutes > 0 || seconds > 0) {
