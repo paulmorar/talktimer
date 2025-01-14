@@ -4,11 +4,34 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+const getBackgroundColor = ({
+  initialMinutes,
+  minutes,
+  seconds,
+}: {
+  initialMinutes: number;
+  minutes: number;
+  seconds: number;
+}) => {
+  const totalSeconds = initialMinutes * 60;
+  const remainingSeconds = minutes * 60 + seconds;
+  const percentage = remainingSeconds / totalSeconds;
+  if (percentage <= 0.15) {
+    const adjustedPercentage = percentage / 0.15;
+    const red = Math.min(100, Math.floor((1 - adjustedPercentage) * 100));
+    return `rgb(${red}, 0, 0)`;
+  }
+
+  return `rgb(0, 0, 0)`;
+};
+
 export default function Home() {
+  const [initialMinutes, setInitialMinutes] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [displayClear, setDisplayClear] = useState(false);
+  const [bgColor, setBgColor] = useState("rgb(0, 0, 0)");
 
   useEffect(() => {
     let timer: any;
@@ -20,6 +43,7 @@ export default function Home() {
           setMinutes(minutes - 1);
           setSeconds(59);
         }
+        setBgColor(getBackgroundColor({ initialMinutes, minutes, seconds }));
       }, 1000);
     } else if (isTimerRunning && minutes === 0 && seconds === 0) {
       setDisplayClear(true);
@@ -36,10 +60,14 @@ export default function Home() {
 
   const handleClearTImer = () => {
     setIsTimerRunning(false);
+    setBgColor("rgb(0, 0, 0)");
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div
+      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+      style={{ backgroundColor: bgColor }}
+    >
       <main className="flex flex-col gap-8 row-start-2 items-center">
         {isTimerRunning ? (
           <div className="flex flex-col gap-8 justify-center items-center">
@@ -70,7 +98,10 @@ export default function Home() {
                 type="number"
                 placeholder="Minutes"
                 value={minutes === 0 ? "" : minutes}
-                onChange={(e) => setMinutes(parseInt(e.target.value))}
+                onChange={(e) => {
+                  setInitialMinutes(parseInt(e.target.value));
+                  setMinutes(parseInt(e.target.value));
+                }}
               />
               <Button type="button" onClick={handleStart}>
                 Start timer
