@@ -63,4 +63,4 @@ Contributions are welcome! Please open an issue or submit a pull request if you 
 
 ## Contact
 
-For any questions or inquiries, please contact Paul Morar at paulmorar@example.com.
+For any questions or inquiries, please contact Paul Morar at paul@devpill.dk.
