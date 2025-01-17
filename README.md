@@ -12,6 +12,8 @@
 
 talkTimer is a simple web application designed to help you manage your speaking time during conference talks or meetups. It provides a countdown timer that visually indicates the remaining time, helping you stay on track.
 
+You can view the website live at [talktimer.org](https://talktimer.org).
+
 ## Features
 
 - Set a countdown timer for your talk.
